@@ -58,7 +58,6 @@ input[type="checkbox"] {
   }
   .wrapper {
     width: 100%;
-    min-width: 568px;
     padding: 16px;
   }
 }
