@@ -5,14 +5,7 @@ function TodoItems({ todosFilter, deleteTodo, checkTodo }) {
   let todoList = null;
 
   if (todosFilter.length <= 0) {
-    todoList = (
-      <p className="todo-empty">
-        You've got nothing todo{" "}
-        <span role="img" aria-label="emoji">
-          😎
-        </span>
-      </p>
-    );
+    todoList = <p className="todo-empty">~ Empty Todo ~</p>;
   } else {
     todoList = todosFilter.map((todo) => {
       return (

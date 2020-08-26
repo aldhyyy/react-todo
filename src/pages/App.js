@@ -9,6 +9,7 @@ class App extends React.Component {
     super();
 
     this.state = {
+      filter: "all",
       todos: [
         {
           id: 1,
@@ -88,6 +89,34 @@ class App extends React.Component {
     });
   }
 
+  filterTodos(filter = null) {
+    if (filter === true) {
+      this.setState({
+        filter: "completed",
+        todosFilter: this.state.todos.filter((todo) => todo.completed),
+      });
+    } else if (filter === false) {
+      this.setState({
+        filter: "not completed",
+        todosFilter: this.state.todos.filter((todo) => !todo.completed),
+      });
+    } else {
+      this.setState({
+        filter: "all",
+        todosFilter: this.state.todos,
+      });
+    }
+  }
+
+  clearCompleted = () => {
+    let todos = this.state.todos.filter((todo) => !todo.completed);
+    this.setState({
+      todos: todos,
+      todosFilter: todos,
+      filter: "all",
+    });
+  };
+
   render() {
     const itemLeft = this.state.todos.filter((todo) => !todo.completed).length;
 
@@ -115,6 +144,36 @@ class App extends React.Component {
               <label htmlFor="checkAll">Check All</label>
             </div>
             <div>{itemLeft} items left</div>
+          </div>
+        )}
+
+        {this.state.todos.length >= 1 && (
+          <div className="extra-container">
+            <div>
+              <button
+                onClick={(e) => this.filterTodos()}
+                className={this.state.filter === "all" && "active"}
+              >
+                All
+              </button>
+              <button
+                onClick={(e) => this.filterTodos(false, e)}
+                className={this.state.filter === "not completed" && "active"}
+              >
+                Active
+              </button>
+              <button
+                onClick={(e) => this.filterTodos(true, e)}
+                className={this.state.filter === "completed" && "active"}
+              >
+                Completed
+              </button>
+            </div>
+            <div>
+              {this.state.todos.filter((todo) => todo.completed).length > 0 && (
+                <button onClick={this.clearCompleted}>Clear Completed</button>
+              )}
+            </div>
           </div>
         )}
       </div>

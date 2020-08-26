@@ -1,0 +1,23 @@
+button {
+  margin-left: 16px;
+  background-color: #252525;
+  border: 1px solid #2d2d2d;
+  border-radius: 5px;
+  padding: 10px;
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: bolder;
+  cursor: pointer;
+  transition: 0.5s;
+}
+button:hover,
+button.active {
+  background-color: #4c4c4c;
+}
+button:focus,
+button:active {
+  outline: none;
+}
+button:first-child {
+  margin-left: 0;
+}
