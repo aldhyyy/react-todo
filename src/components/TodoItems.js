@@ -1,10 +1,10 @@
 import React from "react";
 import "./TodoItems.css";
 
-function TodoItems({ todos, deleteTodo, checkTodo, editTodo, finishEdit }) {
+function TodoItems({ todosFilter, deleteTodo, checkTodo }) {
   let todoList = null;
 
-  if (todos.length <= 0) {
+  if (todosFilter.length <= 0) {
     todoList = (
       <p className="todo-empty">
         You've got nothing todo{" "}
@@ -14,7 +14,7 @@ function TodoItems({ todos, deleteTodo, checkTodo, editTodo, finishEdit }) {
       </p>
     );
   } else {
-    todoList = todos.map((todo) => {
+    todoList = todosFilter.map((todo) => {
       return (
         <div className="todo-item" key={todo.id}>
           <div className="todo-item__left">
