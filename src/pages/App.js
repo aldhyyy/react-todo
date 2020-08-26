@@ -171,7 +171,7 @@ class App extends React.Component {
             </div>
             <div>
               {this.state.todos.filter((todo) => todo.completed).length > 0 && (
-                <button onClick={this.clearCompleted}>Clear Completed</button>
+                <button onClick={this.clearCompleted}>Clear</button>
               )}
             </div>
           </div>
