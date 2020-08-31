@@ -153,19 +153,21 @@ class App extends React.Component {
             <div>
               <button
                 onClick={(e) => this.filterTodos()}
-                className={this.state.filter === "all" && "active"}
+                className={this.state.filter === "all" ? "active" : ""}
               >
                 All
               </button>
               <button
                 onClick={(e) => this.filterTodos(false, e)}
-                className={this.state.filter === "not completed" && "active"}
+                className={
+                  this.state.filter === "not completed" ? "active" : ""
+                }
               >
                 Active
               </button>
               <button
                 onClick={(e) => this.filterTodos(true, e)}
-                className={this.state.filter === "completed" && "active"}
+                className={this.state.filter === "completed" ? "active" : ""}
               >
                 Completed
               </button>
