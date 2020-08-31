@@ -38,7 +38,7 @@
   cursor: pointer;
   margin-left: 12px;
   background-color: #fff;
-  padding: 4px 4px;
+  padding: 4px 7px;
   border-radius: 16px;
   transition: 0.5s;
   font-size: 12px;
@@ -60,4 +60,22 @@
 
 .todo-item__edit.show {
   display: block;
+}
+
+.todo-enter {
+  opacity: 0;
+  transform: scale(0.8);
+}
+.todo-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
+}
+.todo-exit {
+  opacity: 1;
+}
+.todo-exit-active {
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 300ms, transform 300ms;
 }
