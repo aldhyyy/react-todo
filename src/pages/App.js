@@ -120,7 +120,8 @@ class App extends React.Component {
   render() {
     const todos = [...this.state.todosFilter];
     const reverseTodos = todos.reverse();
-    const itemLeft = todos.filter((todo) => !todo.completed).length;
+    const itemLeft = [...this.state.todos].filter((todo) => !todo.completed)
+      .length;
     return (
       <div className="wrapper">
         <Header />
