@@ -118,8 +118,9 @@ class App extends React.Component {
   };
 
   render() {
-    const itemLeft = this.state.todos.filter((todo) => !todo.completed).length;
-
+    const todos = [...this.state.todosFilter];
+    const reverseTodos = todos.reverse();
+    const itemLeft = todos.filter((todo) => !todo.completed).length;
     return (
       <div className="wrapper">
         <Header />
@@ -127,7 +128,7 @@ class App extends React.Component {
         <TodoForm addTodo={this.addTodo} />
 
         <TodoItems
-          todosFilter={this.state.todosFilter}
+          todosFilter={reverseTodos}
           deleteTodo={this.deleteTodo}
           checkTodo={this.checkTodo}
         />
