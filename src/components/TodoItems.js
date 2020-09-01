@@ -1,6 +1,6 @@
 import React from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
-import "./TodoItems.css";
+import "./TodoItems.scss";
 
 const List = ({ todo, checkTodo, deleteTodo, ...props }) => {
   const nodeRef = React.useRef(null);
