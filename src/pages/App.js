@@ -117,6 +117,45 @@ class App extends React.Component {
     });
   };
 
+  editTodo = (id, e) => {
+    const todos = [...this.state.todos].map((todo) => {
+      if (todo.id === id) {
+        todo.edited = true;
+      }
+      return todo;
+    });
+    this.setState({
+      todos,
+      todosFilter: todos,
+    });
+  };
+
+  doneEdit = (id) => {
+    const todos = [...this.state.todos].map((todo) => {
+      if (todo.id === id) {
+        todo.edited = false;
+      }
+      return todo;
+    });
+    this.setState({
+      todos,
+      todosFilter: todos,
+    });
+  };
+
+  handelChange = (id, e) => {
+    const todos = [...this.state.todos].map((todo) => {
+      if (todo.id === id) {
+        todo.content = e.target.value;
+      }
+      return todo;
+    });
+    this.setState({
+      todos,
+      todosFilter: todos,
+    });
+  };
+
   render() {
     const todos = [...this.state.todosFilter];
     const reverseTodos = todos.reverse();
@@ -132,6 +171,9 @@ class App extends React.Component {
           todosFilter={reverseTodos}
           deleteTodo={this.deleteTodo}
           checkTodo={this.checkTodo}
+          editTodo={this.editTodo}
+          doneEdit={this.doneEdit}
+          handelChange={this.handelChange}
         />
 
         {this.state.todos.length >= 1 && (

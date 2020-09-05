@@ -39,16 +39,17 @@
     color: #8c8c8c;
   }
 
-  .todo-remove__button,
-  .todo-edit__button {
+  .todo-item__button {
     align-self: center;
     cursor: pointer;
-    margin-left: 12px;
+    margin-left: 8px;
     background-color: #fff;
-    padding: 4px 7px;
-    border-radius: 16px;
+    padding: 8px;
+    border-radius: 4px;
     transition: 0.5s;
-    font-size: 12px;
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
 
     &:hover {
       color: black;
